@@ -1,0 +1,18 @@
+{
+  "Dev": {
+    "password": "$2b$10$g4cFG8047I7XHw6KbSnRm.zFotDqtbHs3R3/pRQ3pTMFArU37MyBy",
+    "admin": false
+  },
+  "Dev2": {
+    "password": "$2b$10$o8VpwtM9EwRpEzSdq59pne1vr8n7io8g926D1iibf5OUeoTUHuTt.",
+    "admin": false
+  },
+  "Dev3": {
+    "password": "$2b$10$Ye6mj/WLnp7C4u2kjFcaxe64M66gu5YYtOiGUjuwO1YK2ORcQavwW",
+    "admin": false
+  },
+  "test@test.com": {
+    "password": "$2b$10$A3pxmb0nIlJZG.MUxy7nDeICE9pZrhJeAxJGTi3pO6wk8v0z.tI7a",
+    "admin": false
+  }
+}

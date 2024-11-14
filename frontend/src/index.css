@@ -1,0 +1,236 @@
+/* src/index.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme Variables */
+:root {
+  /* Light Mode */
+  --brand-default: #B0BEC5;
+  --brand-primary: #2196F3;
+  --brand-secondary: #323a45;
+  --brand-success: #64DD17;
+  --brand-warning: #FFD600;
+  --brand-info: #29B6F6;
+  --brand-danger: #ef1c1c;
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --bg-light-gray: #f5f5f5;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  --brand-default: #37474F;
+  --brand-primary: #BB86FC;
+  --brand-secondary: #1f2630;
+  --brand-success: #03DAC6;
+  --brand-warning: #FFB300;
+  --brand-info: #03A9F4;
+  --brand-danger: #CF6679;
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --bg-light-gray: #333333;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+/* Dark mode overrides if needed */
+body {
+  @apply bg-white text-black transition-colors duration-300;
+}
+
+body.dark-mode {
+  @apply bg-gray-900 text-white;
+}
+
+/* Force Tailwind to include dark mode classes */
+.bg-gray-900, .dark\\:bg-gray-900 {}
+.text-white, .dark\\:text-white {}
+.bg-gray-800, .dark\\:bg-gray-800 {}
+.border-gray-600, .dark\\:border-gray-600 {}
+.bg-blue-700, .dark\\:bg-blue-700 {}
+.hover\\:bg-blue-800:hover, .dark\\:hover\\:bg-blue-800:hover {}
+.focus\\:ring-blue-500:focus, .dark\\:focus\\:ring-blue-600:focus {}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.demo-preview {
+  padding-top: 100px;
+  padding-bottom: 10px;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+
+/* Replace SCSS variables with CSS custom properties */
+
+
+.progress {
+  background-color: var(--bg-light-gray);
+  border-radius: 3px;
+  box-shadow: none;
+}
+
+.progress-xs {
+  height: 5px;
+  margin-top: 5px;
+}
+
+.progress-sm {
+  height: 10px;
+  margin-top: 5px;
+}
+
+.progress-lg {
+  height: 25px;
+}
+
+.vertical {
+  position: relative;
+  width: 20px;
+  height: 200px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.vertical > .progress-bar {
+  width: 100% !important;
+  position: absolute;
+  bottom: 0;
+}
+
+.vertical.progress-xs {
+  width: 5px;
+  margin-top: 5px;
+}
+
+.vertical.progress-sm {
+  width: 10px;
+  margin-top: 5px;
+}
+
+.vertical.progress-lg {
+  width: 30px;
+}
+
+.progress-bar {
+  background-color: var(--brand-primary);
+  box-shadow: none;
+  border-radius: 6px;
+}
+
+.progress-bar.text-left {
+  text-align: left;
+}
+
+.progress-bar.text-left span {
+  margin-left: 10px;
+}
+
+.progress-bar.text-right {
+  text-align: right;
+}
+
+.progress-bar.text-right span {
+  margin-right: 10px;
+}
+
+/* Convert SCSS mixins to plain CSS animations */
+.progress-bar-striped {
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+  background-size: 40px 40px;
+}
+
+@-webkit-keyframes progress-bar-stripes {
+  from { background-position: 40px 0; }
+  to { background-position: 0 0; }
+}
+
+@keyframes progress-bar-stripes {
+  from { background-position: 40px 0; }
+  to { background-position: 0 0; }
+}
+
+.progress.active .progress-bar,
+.progress-bar.active {
+  animation: progress-bar-stripes 2s linear infinite;
+}
+
+.progress-striped .progress-bar {
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+  background-size: 40px 40px;
+}
+
+.progress-bar-success {
+  background-color: var(--brand-success); /* Success color */
+}
+/* Additional classes for theme support */
+.bg-light {
+  background-color: var(--bg-color);
+}
+
+.text-dark {
+  color: var(--text-color);
+}
+
+/* Toggle Switch */
+input[type="checkbox"] {
+  display: none;
+}
+
+label[for="theme-toggle"] {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  background-color: inherit;
+}
+
+#theme-toggle:checked + label {
+  background-color: #4f46e5; /* Adjust to your dark mode primary color */
+}
+
+span {
+  transition: transform 0.3s;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  height: 20px;
+  width: 30px;
+  aspect-ratio: 1.154;
+  clip-path: polygon(50% 0,100% 100%,0 100%);
+  --c:no-repeat linear-gradient(#4ADE80 0 0);
+  background: var(--c),var(--c),var(--c),var(--c),var(--c);
+  background-size: 100% calc(100%/5 + 1px);
+  animation: l15 2s infinite;
+}
+
+.loader-gradient{
+  --c:no-repeat linear-gradient(#41A2CD 0 0);
+  background: var(--c),var(--c),var(--c),var(--c),var(--c);
+  background-size: 100% calc(100%/5 + 1px);
+  animation: l15 2s infinite;
+}
+@keyframes l15 {
+  0%  {background-position: 0 calc(-2*100%/4),0 calc(-2*100%/4),0 calc(-2*100%/4),0 calc(-2*100%/4),0 calc(-2*100%/4)}
+  20% {background-position: 0 calc(4*100%/4) ,0 calc(-2*100%/4),0 calc(-2*100%/4),0 calc(-2*100%/4),0 calc(-2*100%/4)}
+  40% {background-position: 0 calc(4*100%/4) ,0 calc(3*100%/4) ,0 calc(-2*100%/4),0 calc(-2*100%/4),0 calc(-2*100%/4)}
+  60% {background-position: 0 calc(4*100%/4) ,0 calc(3*100%/4) ,0 calc(2*100%/4) ,0 calc(-2*100%/4),0 calc(-2*100%/4)}
+  80% {background-position: 0 calc(4*100%/4) ,0 calc(3*100%/4) ,0 calc(2*100%/4) ,0 calc(1*100%/4) ,0 calc(-2*100%/4)}
+  100%{background-position: 0 calc(4*100%/4) ,0 calc(3*100%/4) ,0 calc(2*100%/4) ,0 calc(1*100%/4) ,0 calc(0*100%/4)}
+}
